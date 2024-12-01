@@ -14,6 +14,8 @@ public class SceneManager : MonoBehaviour
     public bool StartRainstorm;
     public bool StartGameDisplayer;
     public bool endQuietly = true;
+    public CountdownTimer CountDownTimer;
+    public float countdownTime;
     public SceneStep[] steps;
 
     [fsIgnore]
@@ -58,6 +60,9 @@ public class SceneManager : MonoBehaviour
             mainStageManager.RainManager.SwitchRainStrom(false);
             
         }
+
+        if(CountDownTimer!=null&&CountDownTimer.gameObject.activeSelf)
+            CountDownTimer.gameObject.SetActive(false);
     }
 
 
@@ -76,6 +81,27 @@ public class SceneManager : MonoBehaviour
         {
             NextStep();
         }
+
+        if (CountDownTimer != null)
+        {
+            if (Input.GetKeyDown(KeyCode.Z))
+            {
+                ShowCountDownTimer();
+            }
+            if (Input.GetKeyDown(KeyCode.X))
+            {
+                CountDownTimer.PauseOrResumeCountDown();
+            }
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                CountDownTimer.CountDownTimeDisable();
+            }
+            if (Input.GetKeyDown(KeyCode.V))
+            {
+                CountDownTimer.ResetCountDown();
+            }
+        }
+
     }
 
     public void ResetScene()
@@ -144,5 +170,8 @@ public class SceneManager : MonoBehaviour
         
     }
 
-    
+    public void ShowCountDownTimer()
+    {
+        CountDownTimer.ShowAndSetCountDown(countdownTime);
+    }
 }

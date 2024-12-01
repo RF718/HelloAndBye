@@ -17,7 +17,7 @@ public class FlashManager : MonoBehaviour
     private void OnEnable()
     {
         flashFade.SetActive(true);
-        audioManager.PlaypAudioEffect(flashSound);
+        audioManager.PlayAudioEffect(flashSound);
 
     }
 

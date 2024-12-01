@@ -192,7 +192,7 @@ public class AudioManager : MonoBehaviour
     /// ≤•∑≈“Ù–ß
     /// </summary>
     /// <param name="name"></param>
-    public void PlaypAudioEffect(string name)
+    public void PlayAudioEffect(string name)
     {
         if (audioEffects.ContainsKey(name))
             PlayAudioEffect(audioEffects[name]);

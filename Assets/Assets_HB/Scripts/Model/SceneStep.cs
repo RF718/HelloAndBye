@@ -15,6 +15,7 @@ public class SceneStep
     public bool rainstorm;
     public bool houseShake;
     public bool fade;
+    public bool countDown;
 
     public void Execute()
     {
@@ -34,7 +35,7 @@ public class SceneStep
             audioManager.StopAllAudioEffect();
 
         if (!string.IsNullOrWhiteSpace(audioEffect))
-            audioManager.PlaypAudioEffect(audioEffect);
+            audioManager.PlayAudioEffect(audioEffect);
 
         mainStageManager.FlashManager.SwitchFlashManager(flash);
         mainStageManager.RainManager.SwitchDrizzle(drizzle);
@@ -49,7 +50,6 @@ public class SceneStep
         {
             MainStageManager.instance.scenesManager.HouseFade();
         }
-
 
     }
 }

@@ -20,7 +20,7 @@ public class RainManager : MonoBehaviour
         drizzlePrefab.SetActive(switcher);
 
         if (switcher)
-            audioManager.PlaypAudioEffect(drizzleSoundName);
+            audioManager.PlayAudioEffect(drizzleSoundName);
         else
             audioManager.StopAudioEffect(drizzleSoundName);    
     }
@@ -30,7 +30,7 @@ public class RainManager : MonoBehaviour
         rainStormPrefab.SetActive(switcher);
 
         if (switcher)
-            audioManager.PlaypAudioEffect(rainStromSoundName);
+            audioManager.PlayAudioEffect(rainStromSoundName);
         else
             audioManager.StopAudioEffect(rainStromSoundName);
     }
