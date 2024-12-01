@@ -99,7 +99,7 @@ public class ButtonManager : MonoBehaviour
             description.SetActive(true);
 
             // 播放成功或者益虫音效
-            MainStageManager.instance.audioManager.PlaypAudioEffect(activeButton.beneficial ? "successSound " : "beneficialInsectSound");
+            MainStageManager.instance.audioManager.PlaypAudioEffect(activeButton.beneficial ? successSound  : beneficialInsectSound);
             //audioSource.PlayOneShot(activeButton.beneficial ? successSound : beneficialInsectSound);
         }
     }
@@ -128,7 +128,7 @@ public class ButtonManager : MonoBehaviour
             if (!clickedOnButton)
             {
                 // 播放失败音效
-                MainStageManager.instance.audioManager.PlaypAudioEffect("failureSound");
+                MainStageManager.instance.audioManager.PlaypAudioEffect(failureSound);
                 //audioSource.PlayOneShot(failureSound);
             }
         }

@@ -13,7 +13,7 @@ public class SceneManager : MonoBehaviour
     public bool StartDrizzle;
     public bool StartRainstorm;
     public bool StartGameDisplayer;
-    public bool endQuietly;
+    public bool endQuietly = true;
     public SceneStep[] steps;
 
     [fsIgnore]
@@ -46,6 +46,8 @@ public class SceneManager : MonoBehaviour
 
     private void OnDisable()
     {
+        mainStageManager.audioManager.ResetChangeable();
+
         if (endQuietly)
         {
             mainStageManager.audioManager.StopBgmPlayer();
@@ -54,6 +56,7 @@ public class SceneManager : MonoBehaviour
             mainStageManager.FlashManager.SwitchFlashManager(false);
             mainStageManager.RainManager.SwitchDrizzle(false);
             mainStageManager.RainManager.SwitchRainStrom(false);
+            
         }
     }
 
@@ -61,7 +64,7 @@ public class SceneManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha0))
+        if (Input.GetKeyDown(KeyCode.Return))
         {
             GoToTheStep(-1);
         }
@@ -90,6 +93,8 @@ public class SceneManager : MonoBehaviour
         mainStageManager.RainManager.SwitchDrizzle(StartDrizzle);
         mainStageManager.RainManager.SwitchRainStrom(StartRainstorm);
         mainStageManager.scenesManager.GameStartDisplay.SetActive(StartGameDisplayer);
+        if (StartGameDisplayer)
+            mainStageManager.audioManager.SetAndPlayBgmPlayer("gameStart");
         currentStep = -1;
     }
 

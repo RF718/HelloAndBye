@@ -20,7 +20,7 @@ public class AudioManager : MonoBehaviour
 
     public float minChangeableAudioEffectVolume = -30f;         //可变音效最小音量
 
-    public float maxChangeableAudioEffectVolume = 30f;          //可变音效最大音量
+    public float maxChangeableAudioEffectVolume = 20f;          //可变音效最大音量
 
     public KeyCode bgmPauseOrResume = KeyCode.Space;            //bgm暂停或继续播放按键
 
@@ -28,7 +28,7 @@ public class AudioManager : MonoBehaviour
 
     public KeyCode bgmReplay = KeyCode.LeftAlt;                 //bgm重播按键
 
-    public KeyCode audioEffectCrescendo = KeyCode.Plus;         //可变音效渐强按键
+    public KeyCode audioEffectCrescendo = KeyCode.Equals;         //可变音效渐强按键
 
     public KeyCode audioEffectDecrescendo = KeyCode.Minus;      //可变音效减弱按键
 
@@ -73,6 +73,7 @@ public class AudioManager : MonoBehaviour
                 //为每个音效生成单独的播放器，因为可能会重叠播放。
                 var audioSource = this.gameObject.AddComponent<AudioSource>();
                 SetAudioSource(sound, audioSource);
+                audioEffects[sound.name] = audioSource;
             }    
         }
 
@@ -104,10 +105,10 @@ public class AudioManager : MonoBehaviour
         foreach (var sound in sounds)
         {
             //监控停止音效，要先按下右侧alt，再按下音效对应的按键。
-            if (sound.isBGM && Input.GetKey(KeyCode.RightAlt) && Input.GetKeyDown(sound.key))
+            if (!sound.isBGM&&Input.GetKey(KeyCode.Tab) && Input.GetKeyDown(sound.key))
             {
-                StopAudioEffect(audioEffects[sound.name]);
-                return;
+                    StopAudioEffect(audioEffects[sound.name]);
+                    return;
             }
             
             //监控播放音乐！包括音效和bgm
@@ -243,6 +244,16 @@ public class AudioManager : MonoBehaviour
     private void DerescendoAudioEffect()
     {
         targetAudioEffectVolume -= volumeChangeSpeed * Time.deltaTime; 
+    }
+
+    /// <summary>
+    /// 重置可变音量
+    /// </summary>
+    public void ResetChangeable()
+    {
+        targetAudioEffectVolume = 0;
+        currentAudioEffectVolume = 0;
+        mixer.SetFloat(changeableMixerGroupName, 0);
     }
 
     /// <summary>

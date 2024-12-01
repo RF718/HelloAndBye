@@ -8,7 +8,7 @@ public class SceneStep
     public GameObject house;
     public string audioEffect;
     public string bgm;
-    public bool stopBgm;
+    public bool stopPreviousBgm;
     public bool clearAudioEffect;
     public bool flash;
     public bool drizzle;
@@ -24,13 +24,13 @@ public class SceneStep
         var mainStageManager = MainStageManager.instance;
         var audioManager = mainStageManager.audioManager;
 
+        if(stopPreviousBgm)
+            audioManager.StopBgmPlayer();
+
         if (!string.IsNullOrWhiteSpace(bgm))
             audioManager.SetAndPlayBgmPlayer(bgm);
 
-        if(stopBgm)
-            audioManager.StopBgmPlayer();
-
-        if(clearAudioEffect)
+        if (clearAudioEffect)
             audioManager.StopAllAudioEffect();
 
         if (!string.IsNullOrWhiteSpace(audioEffect))

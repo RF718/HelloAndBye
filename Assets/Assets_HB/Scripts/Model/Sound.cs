@@ -10,6 +10,7 @@ public class Sound
 
     public KeyCode key;
 
+    [Range(0,1)]
     public float volume;   
 
     public bool loop;
