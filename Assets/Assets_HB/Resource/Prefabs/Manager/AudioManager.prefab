@@ -1,0 +1,229 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6065295044435166705
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5199975225307299688}
+  - component: {fileID: 527520511921499466}
+  - component: {fileID: 5498182040097222449}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5199975225307299688
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6065295044435166705}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 65.757576, y: -29.017569, z: 263.91653}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &527520511921499466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6065295044435166705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa82bf23ea130a644aacba2301854ab5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: flash
+    clip: {fileID: 8300000, guid: 815c04fbbb32dbc439d317d674b69a7a, type: 3}
+    key: 101
+    volume: 1
+    loop: 0
+    playOnAwake: 0
+    mixerGroup: {fileID: 0}
+    isBGM: 0
+  - name: drizzle
+    clip: {fileID: 8300000, guid: 28c936c8ad65b9f42978d3cc7b9c0a88, type: 3}
+    key: 114
+    volume: 1
+    loop: 1
+    playOnAwake: 0
+    mixerGroup: {fileID: 0}
+    isBGM: 0
+  - name: rainStrom
+    clip: {fileID: 8300000, guid: 801ed55b29ce86544999c3d33e682526, type: 3}
+    key: 116
+    volume: 1
+    loop: 1
+    playOnAwake: 0
+    mixerGroup: {fileID: 0}
+    isBGM: 0
+  - name: river
+    clip: {fileID: 8300000, guid: a52eeedf1a46d1f4aa8a0cc3b9288bba, type: 3}
+    key: 121
+    volume: 1
+    loop: 1
+    playOnAwake: 0
+    mixerGroup: {fileID: 0}
+    isBGM: 0
+  - name: bridge
+    clip: {fileID: 8300000, guid: 56f6da19d052bfd41b4da67df4d695b1, type: 3}
+    key: 117
+    volume: 1
+    loop: 0
+    playOnAwake: 0
+    mixerGroup: {fileID: 0}
+    isBGM: 0
+  - name: house
+    clip: {fileID: 8300000, guid: 0b7320d95b9fb994eafb31cec3891b55, type: 3}
+    key: 105
+    volume: 1
+    loop: 0
+    playOnAwake: 0
+    mixerGroup: {fileID: 0}
+    isBGM: 0
+  - name: SuccessSound
+    clip: {fileID: 8300000, guid: a40d2798939f1d842b23c699f450a73e, type: 3}
+    key: 111
+    volume: 1
+    loop: 0
+    playOnAwake: 0
+    mixerGroup: {fileID: 0}
+    isBGM: 0
+  - name: BeneficialInsect
+    clip: {fileID: 8300000, guid: c1199d3e41cddcc46b008ff4bee10256, type: 3}
+    key: 111
+    volume: 1
+    loop: 0
+    playOnAwake: 0
+    mixerGroup: {fileID: 0}
+    isBGM: 0
+  - name: FailureSound
+    clip: {fileID: 8300000, guid: 28a1432d0ec5af94c8792c9f1665b165, type: 3}
+    key: 111
+    volume: 1
+    loop: 0
+    playOnAwake: 0
+    mixerGroup: {fileID: 0}
+    isBGM: 0
+  mixer: {fileID: 24100000, guid: c20cc9d0358eea84e875bd28f1c67379, type: 2}
+  bgmPlayer: {fileID: 5498182040097222449}
+  changeableMixerGroupName: 
+  volumeChangeSpeed: 10
+  smoothTime: 0.1
+  minChangeableAudioEffectVolume: -30
+  maxChangeableAudioEffectVolume: 30
+  bgmPauseOrResume: 32
+  bgmStop: 304
+  bgmReplay: 308
+  audioEffectCrescendo: 43
+  audioEffectDecrescendo: 45
+  audioEffectStopAll: 306
+--- !u!82 &5498182040097222449
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6065295044435166705}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

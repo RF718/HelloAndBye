@@ -5,12 +5,15 @@ using UnityEngine;
 
 public class SceneManager : MonoBehaviour
 {
+    private MainStageManager mainStageManager;
+
     public GameObject[] startActivesObject;
     public GameObject[] startInactiveObjects;
     public bool StartFlash;
     public bool StartDrizzle;
     public bool StartRainstorm;
     public bool StartGameDisplayer;
+    public bool endQuietly;
     public SceneStep[] steps;
 
     [fsIgnore]
@@ -25,17 +28,16 @@ public class SceneManager : MonoBehaviour
         get=>lastStep; set => lastStep = value;
     }
 
+    private void Awake()
+    {
+        mainStageManager = MainStageManager.instance;
+    }
+
     private void Start()
     {
         lastStep = -1;
         currentStep = -1;
     }
-
-    // Start is called before the first frame update
-    //void Awake()
-    //{
-    //    ResetScene();
-    //}
 
     private void OnEnable()
     {
@@ -44,8 +46,15 @@ public class SceneManager : MonoBehaviour
 
     private void OnDisable()
     {
-        MainStageManager.instance.AudioPlayer.Stop();
-        MainStageManager.instance.AudioPlayer.clip = null;
+        if (endQuietly)
+        {
+            mainStageManager.audioManager.StopBgmPlayer();
+            mainStageManager.audioManager.StopAllAudioEffect();
+
+            mainStageManager.FlashManager.SwitchFlashManager(false);
+            mainStageManager.RainManager.SwitchDrizzle(false);
+            mainStageManager.RainManager.SwitchRainStrom(false);
+        }
     }
 
 
@@ -56,11 +65,11 @@ public class SceneManager : MonoBehaviour
         {
             GoToTheStep(-1);
         }
-        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             PreviousStep();
         }
-        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             NextStep();
         }
@@ -68,6 +77,7 @@ public class SceneManager : MonoBehaviour
 
     public void ResetScene()
     {
+        lastStep = currentStep;
         for (int i = 0; i < startActivesObject.Length; i++)
         {
             startActivesObject[i].SetActive(true);
@@ -76,10 +86,10 @@ public class SceneManager : MonoBehaviour
         {
             startInactiveObjects[i].SetActive(false);
         }
-        MainStageManager.instance.Flash.SetActive(StartFlash);
-        MainStageManager.instance.Drizzle.SetActive(StartDrizzle);
-        MainStageManager.instance.RainStorm.SetActive(StartRainstorm);
-        MainStageManager.instance.GameStartDisplay.SetActive(StartGameDisplayer);
+        mainStageManager.FlashManager.SwitchFlashManager(StartFlash);
+        mainStageManager.RainManager.SwitchDrizzle(StartDrizzle);
+        mainStageManager.RainManager.SwitchRainStrom(StartRainstorm);
+        mainStageManager.scenesManager.GameStartDisplay.SetActive(StartGameDisplayer);
         currentStep = -1;
     }
 
@@ -88,8 +98,8 @@ public class SceneManager : MonoBehaviour
         if (currentStep >= steps.Length - 1)
         {
             Debug.Log("最后一步,进入下一场景");
-            MainStageManager.instance.GoToTheNextScene();
-            lastStep = currentStep+1;
+            mainStageManager.scenesManager.GoToTheNextScene();
+            lastStep = currentStep;
             return;
         }
         lastStep = currentStep++;
@@ -102,8 +112,8 @@ public class SceneManager : MonoBehaviour
         if (currentStep == -1)
         {
             Debug.Log("初始状态");
-            MainStageManager.instance.GoToThePreviousScene();
-            lastStep= currentStep-1;
+            mainStageManager.scenesManager.GoToThePreviousScene();
+            lastStep= currentStep;
             return;
         }
         lastStep = currentStep--;
@@ -115,12 +125,7 @@ public class SceneManager : MonoBehaviour
     {
         if (step == -1)
         {
-            foreach (var item in startActivesObject) { item.SetActive(true); }
-            foreach (var item in startInactiveObjects) { item.SetActive(false); }
-            MainStageManager.instance.Flash.SetActive(StartFlash);
-            MainStageManager.instance.Drizzle.SetActive(StartDrizzle);
-            MainStageManager.instance.RainStorm.SetActive(StartRainstorm);
-            MainStageManager.instance.GameStartDisplay.SetActive(StartGameDisplayer);
+            ResetScene();
         }
         if (steps.Length>0&&step >= 0 && step < steps.Length)
         {

@@ -18,4 +18,6 @@ public class Sound
 
     public AudioMixerGroup mixerGroup;
 
+    public bool isBGM;
+
 }

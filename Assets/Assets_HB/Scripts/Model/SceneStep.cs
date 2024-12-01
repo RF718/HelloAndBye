@@ -6,9 +6,10 @@ public class SceneStep
     public GameObject[] activeObjects;
     public GameObject[] inactiveObjects;
     public GameObject house;
-    public AudioClip sound;
-    public bool loop;
-    public bool audioStop;
+    public string audioEffect;
+    public string bgm;
+    public bool stopBgm;
+    public bool clearAudioEffect;
     public bool flash;
     public bool drizzle;
     public bool rainstorm;
@@ -20,22 +21,24 @@ public class SceneStep
         foreach (var item in activeObjects) { item.SetActive(true); }
         foreach (var item in inactiveObjects) { item.SetActive(false); }
 
-        AudioSource audioPlayer = MainStageManager.instance.AudioPlayer;
-        if (sound != null)
-        {
-            
-            audioPlayer.clip = sound;
-            audioPlayer.loop = loop;
-            audioPlayer.Play();
-        }
-        else if(audioStop)
-        {
-            audioPlayer.clip = null;
-        }
+        var mainStageManager = MainStageManager.instance;
+        var audioManager = mainStageManager.audioManager;
 
-        MainStageManager.instance.Flash.SetActive(flash);
-        MainStageManager.instance.Drizzle.SetActive(drizzle);
-        MainStageManager.instance.RainStorm.SetActive(rainstorm);
+        if (!string.IsNullOrWhiteSpace(bgm))
+            audioManager.SetAndPlayBgmPlayer(bgm);
+
+        if(stopBgm)
+            audioManager.StopBgmPlayer();
+
+        if(clearAudioEffect)
+            audioManager.StopAllAudioEffect();
+
+        if (!string.IsNullOrWhiteSpace(audioEffect))
+            audioManager.PlaypAudioEffect(audioEffect);
+
+        mainStageManager.FlashManager.SwitchFlashManager(flash);
+        mainStageManager.RainManager.SwitchDrizzle(drizzle);
+        mainStageManager.RainManager.SwitchRainStrom(rainstorm);
 
         if (house != null)
         {
@@ -44,7 +47,7 @@ public class SceneStep
 
         if (fade)
         {
-            MainStageManager.instance.HouseFade();
+            MainStageManager.instance.scenesManager.HouseFade();
         }
 
 

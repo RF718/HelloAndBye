@@ -1,0 +1,139 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!244 &-5312947526873582076
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 8155821fe7057a547946872add9a5fb2
+  m_EffectName: Attenuation
+  m_MixLevel: 56ee8a86042f0bd4c9676ddb6787a560
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!243 &-5248654338315112167
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BGM
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: e4d00741d944a4244850c97af4c07d5d
+  m_Children: []
+  m_Volume: 569bd69aee2f9c74db59fb2663599475
+  m_Pitch: 30cd63294f92fa74f95b9b72ab8e0c1c
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -1387659452832147067}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!243 &-2462112913854241953
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ChangedableAudioEffect
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 504cd43dd222a1b439fa472fb2afcdd7
+  m_Children: []
+  m_Volume: 48035f24626ffc242b01bc70de1bc90e
+  m_Pitch: f8501706715cadb4682a3d0764b55fe8
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -5312947526873582076}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!244 &-1387659452832147067
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 2f6aa1af5ee63c54a845e59799e50e62
+  m_EffectName: Attenuation
+  m_MixLevel: 0b99f3364c56f5840a635fe943a2ba71
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!241 &24100000
+AudioMixerController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: HBAudioMixer
+  m_OutputGroup: {fileID: 0}
+  m_MasterGroup: {fileID: 24300002}
+  m_Snapshots:
+  - {fileID: 24500006}
+  m_StartSnapshot: {fileID: 24500006}
+  m_SuspendThreshold: -80
+  m_EnableSuspend: 1
+  m_UpdateMode: 0
+  m_ExposedParameters: []
+  m_AudioMixerGroupViews:
+  - guids:
+    - fe794b0cf674b8840a60b5ab791cc567
+    - e4d00741d944a4244850c97af4c07d5d
+    - 504cd43dd222a1b439fa472fb2afcdd7
+    name: View
+  m_CurrentViewIndex: 0
+  m_TargetSnapshot: {fileID: 24500006}
+--- !u!243 &24300002
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Master
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: fe794b0cf674b8840a60b5ab791cc567
+  m_Children:
+  - {fileID: -5248654338315112167}
+  - {fileID: -2462112913854241953}
+  m_Volume: f046acca0fca7384f91d392e246f363b
+  m_Pitch: 0e477004b2fb8724dbeca155ba539c97
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: 24400004}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!244 &24400004
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 555d17a7a9332d9469de3a910873108e
+  m_EffectName: Attenuation
+  m_MixLevel: cf00bbab01449c34da6274f3e608bbe0
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!245 &24500006
+AudioMixerSnapshotController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Snapshot
+  m_AudioMixer: {fileID: 24100000}
+  m_SnapshotID: f8f379426bd1a2c409feff29bb03402a
+  m_FloatValues:
+    f046acca0fca7384f91d392e246f363b: 2
+  m_TransitionOverrides: {}

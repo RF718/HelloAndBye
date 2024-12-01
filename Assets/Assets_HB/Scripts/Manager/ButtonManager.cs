@@ -28,10 +28,9 @@ public class ButtonManager : MonoBehaviour
     [SerializeField]
     public Sprite beneficialDescriptionSprite;
 
-    public AudioClip successSound;          // 成功音效
-    public AudioClip beneficialInsectSound; // 益虫音效
-    public AudioClip failureSound;          // 失败音效
-    public AudioSource audioSource;         // 用于播放音效的AudioSource组件
+    public string successSound;         // 成功音效
+    public string beneficialInsectSound;  // 益虫音效
+    public string failureSound;          // 失败音效
 
     private Vector3[] originalPositions;    // 按钮的初始位置
     private Vector3[] originalScales;       // 按钮的初始大小
@@ -100,7 +99,8 @@ public class ButtonManager : MonoBehaviour
             description.SetActive(true);
 
             // 播放成功或者益虫音效
-            audioSource.PlayOneShot(activeButton.beneficial ? successSound : beneficialInsectSound);
+            MainStageManager.instance.audioManager.PlaypAudioEffect(activeButton.beneficial ? "successSound " : "beneficialInsectSound");
+            //audioSource.PlayOneShot(activeButton.beneficial ? successSound : beneficialInsectSound);
         }
     }
 
@@ -128,7 +128,8 @@ public class ButtonManager : MonoBehaviour
             if (!clickedOnButton)
             {
                 // 播放失败音效
-                audioSource.PlayOneShot(failureSound);
+                MainStageManager.instance.audioManager.PlaypAudioEffect("failureSound");
+                //audioSource.PlayOneShot(failureSound);
             }
         }
     }
