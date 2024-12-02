@@ -23,7 +23,8 @@ public class SpriteSwitcher : MonoBehaviour
 
     void OnEnable()
     {
-       start = true;
+        start = true;
+        MainStageManager.instance.scenesManager.SetGameStartFlag(true);
     }
 
     private void OnDisable()
@@ -35,6 +36,7 @@ public class SpriteSwitcher : MonoBehaviour
             StopCoroutine(switchCoro);
             switchCoro = null;
         }
+        MainStageManager.instance.scenesManager.SetGameStartFlag(false);
     }
 
     private void Update()

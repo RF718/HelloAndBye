@@ -62,7 +62,10 @@ public class ButtonManager : MonoBehaviour
     }
 
     void Update()
-    {
+    {   
+        if (MainStageManager.instance.MenuManager.gameObject.activeSelf||MainStageManager.instance.scenesManager.IsGameStartActive())
+            return;
+        
         if (isMoving && activeButton != null)
         {
             MoveButtonToTarget();

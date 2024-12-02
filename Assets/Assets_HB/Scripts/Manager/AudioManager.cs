@@ -87,6 +87,8 @@ public class AudioManager : MonoBehaviour
 
     private void Update()
     {
+        if (MainStageManager.instance.MenuManager.gameObject.activeSelf)
+            return;
         //监控音效相关按键事件
         if (Input.GetKey(audioEffectCrescendo))
             CrescendoAudioEffect();

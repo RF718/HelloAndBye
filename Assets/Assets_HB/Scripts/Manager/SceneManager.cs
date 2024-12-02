@@ -69,6 +69,8 @@ public class SceneManager : MonoBehaviour
 
     private void Update()
     {
+        if (MainStageManager.instance.MenuManager.gameObject.activeSelf)
+            return;
         if (Input.GetKeyDown(KeyCode.Return))
         {
             GoToTheStep(-1);

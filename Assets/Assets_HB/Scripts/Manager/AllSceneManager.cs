@@ -18,6 +18,15 @@ public class AllSceneManager : MonoBehaviour
     [fsIgnore]
     private int lastSceneId;
 
+    private bool isGameStartActive=false;
+
+    public void SetGameStartFlag(bool isActive)
+    {
+        isGameStartActive  = isActive;
+    }
+
+    public bool IsGameStartActive() { return isGameStartActive; }
+
     public void ResetAllCanvas()
     {
         for (int i = 0; i < scenes.Length; i++)
@@ -93,6 +102,8 @@ public class AllSceneManager : MonoBehaviour
 
     void Update()
     {
+        if(MainStageManager.instance.MenuManager.gameObject.activeSelf)
+            return;
         if (Input.GetKeyDown(KeyCode.F1)) GoToTheScene(0);
         if (Input.GetKeyDown(KeyCode.F2)) GoToTheScene(1);
         if (Input.GetKeyDown(KeyCode.F3)) GoToTheScene(2);
@@ -107,7 +118,6 @@ public class AllSceneManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F12)) GoToTheScene(11);
         if (Input.GetKeyDown(KeyCode.B)) GoToTheScene(12);
         if (Input.GetKeyDown(KeyCode.Backspace)) Revoke();
-        if (Input.GetKeyDown(KeyCode.Escape)) UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("StartStage");
     }
 
     // 淡入淡出协程
