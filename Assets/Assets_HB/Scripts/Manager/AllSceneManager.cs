@@ -11,6 +11,10 @@ public class AllSceneManager : MonoBehaviour
     public SceneManager startScene;
     public GameObject GameStartDisplay;
     public Image BlackFade; // 黑色遮罩，用于淡入淡出
+
+    public KeyCode blackScene;
+    public KeyCode backToLastStep;
+
     public float fadeDuration = 0.5f; // 淡入淡出的持续时间
 
     [fsIgnore]
@@ -116,8 +120,8 @@ public class AllSceneManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F10)) GoToTheScene(9);
         if (Input.GetKeyDown(KeyCode.F11)) GoToTheScene(10);
         if (Input.GetKeyDown(KeyCode.F12)) GoToTheScene(11);
-        if (Input.GetKeyDown(KeyCode.B)) GoToTheScene(12);
-        if (Input.GetKeyDown(KeyCode.Backspace)) Revoke();
+        if (Input.GetKeyDown(blackScene)) GoToTheScene(12);
+        if (Input.GetKeyDown(backToLastStep)) Revoke();
     }
 
     // 淡入淡出协程

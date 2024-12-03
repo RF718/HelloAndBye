@@ -793,6 +793,8 @@ MonoBehaviour:
   startScene: {fileID: 384764084}
   GameStartDisplay: {fileID: 779026533}
   BlackFade: {fileID: 2081339700}
+  blackScene: 0
+  backToLastStep: 0
   fadeDuration: 0.5
 --- !u!1 &371020438
 GameObject:
@@ -902,6 +904,13 @@ MonoBehaviour:
   CountDownTimer: {fileID: 0}
   countdownTime: 0
   steps: []
+  startStep: 0
+  nextStep: 0
+  prevStep: 0
+  showCountDownTimer: 0
+  startOrPauseCountDownTimer: 0
+  stopCountDownTimer: 0
+  resetCountDownTimer: 0
 --- !u!114 &384764085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2211,6 +2220,13 @@ MonoBehaviour:
     houseShake: 0
     fade: 0
     countDown: 0
+  startStep: 0
+  nextStep: 0
+  prevStep: 0
+  showCountDownTimer: 0
+  startOrPauseCountDownTimer: 0
+  stopCountDownTimer: 0
+  resetCountDownTimer: 0
 --- !u!1 &600615300
 GameObject:
   m_ObjectHideFlags: 0
@@ -3269,6 +3285,13 @@ MonoBehaviour:
   CountDownTimer: {fileID: 0}
   countdownTime: 0
   steps: []
+  startStep: 0
+  nextStep: 0
+  prevStep: 0
+  showCountDownTimer: 0
+  startOrPauseCountDownTimer: 0
+  stopCountDownTimer: 0
+  resetCountDownTimer: 0
 --- !u!1 &779026533
 GameObject:
   m_ObjectHideFlags: 0
@@ -3801,8 +3824,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 644, y: -202}
-  m_SizeDelta: {x: 1079, y: 771}
+  m_AnchoredPosition: {x: 887.09, y: -103.95}
+  m_SizeDelta: {x: 1441.19, y: 891.105}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &827637167
 MonoBehaviour:
@@ -3824,7 +3847,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1866655188582157819, guid: 32e351b8c19d5694bbbd9d40ea18b49b, type: 3}
+  m_Sprite: {fileID: -4674516436400297902, guid: 0fde127c5fb2f4f438a09b01c73aa022, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5364,6 +5387,13 @@ MonoBehaviour:
   CountDownTimer: {fileID: 0}
   countdownTime: 0
   steps: []
+  startStep: 0
+  nextStep: 0
+  prevStep: 0
+  showCountDownTimer: 0
+  startOrPauseCountDownTimer: 0
+  stopCountDownTimer: 0
+  resetCountDownTimer: 0
 --- !u!224 &1184503787
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5724,6 +5754,13 @@ MonoBehaviour:
   CountDownTimer: {fileID: 0}
   countdownTime: 0
   steps: []
+  startStep: 0
+  nextStep: 0
+  prevStep: 0
+  showCountDownTimer: 0
+  startOrPauseCountDownTimer: 0
+  stopCountDownTimer: 0
+  resetCountDownTimer: 0
 --- !u!1 &1219068301
 GameObject:
   m_ObjectHideFlags: 0
@@ -6444,6 +6481,13 @@ MonoBehaviour:
   CountDownTimer: {fileID: 0}
   countdownTime: 0
   steps: []
+  startStep: 0
+  nextStep: 0
+  prevStep: 0
+  showCountDownTimer: 0
+  startOrPauseCountDownTimer: 0
+  stopCountDownTimer: 0
+  resetCountDownTimer: 0
 --- !u!1 &1373584505
 GameObject:
   m_ObjectHideFlags: 0
@@ -6631,6 +6675,13 @@ MonoBehaviour:
     houseShake: 0
     fade: 1
     countDown: 0
+  startStep: 0
+  nextStep: 0
+  prevStep: 0
+  showCountDownTimer: 0
+  startOrPauseCountDownTimer: 0
+  stopCountDownTimer: 0
+  resetCountDownTimer: 0
 --- !u!1 &1373883473
 GameObject:
   m_ObjectHideFlags: 0
@@ -7984,6 +8035,13 @@ MonoBehaviour:
     houseShake: 0
     fade: 0
     countDown: 0
+  startStep: 0
+  nextStep: 0
+  prevStep: 0
+  showCountDownTimer: 0
+  startOrPauseCountDownTimer: 0
+  stopCountDownTimer: 0
+  resetCountDownTimer: 0
 --- !u!1 &1483125950
 GameObject:
   m_ObjectHideFlags: 0
@@ -8261,6 +8319,13 @@ MonoBehaviour:
     houseShake: 0
     fade: 0
     countDown: 0
+  startStep: 0
+  nextStep: 0
+  prevStep: 0
+  showCountDownTimer: 0
+  startOrPauseCountDownTimer: 0
+  stopCountDownTimer: 0
+  resetCountDownTimer: 0
 --- !u!1 &1498528222
 GameObject:
   m_ObjectHideFlags: 0
@@ -8727,6 +8792,13 @@ MonoBehaviour:
   CountDownTimer: {fileID: 0}
   countdownTime: 0
   steps: []
+  startStep: 0
+  nextStep: 0
+  prevStep: 0
+  showCountDownTimer: 0
+  startOrPauseCountDownTimer: 0
+  stopCountDownTimer: 0
+  resetCountDownTimer: 0
 --- !u!224 &1595520584
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9571,6 +9643,13 @@ MonoBehaviour:
     houseShake: 0
     fade: 0
     countDown: 0
+  startStep: 0
+  nextStep: 0
+  prevStep: 0
+  showCountDownTimer: 0
+  startOrPauseCountDownTimer: 0
+  stopCountDownTimer: 0
+  resetCountDownTimer: 0
 --- !u!1 &1802099227
 GameObject:
   m_ObjectHideFlags: 0
@@ -10252,6 +10331,13 @@ MonoBehaviour:
     houseShake: 0
     fade: 1
     countDown: 0
+  startStep: 0
+  nextStep: 0
+  prevStep: 0
+  showCountDownTimer: 0
+  startOrPauseCountDownTimer: 0
+  stopCountDownTimer: 0
+  resetCountDownTimer: 0
 --- !u!1 &1900704544
 GameObject:
   m_ObjectHideFlags: 0
@@ -10954,6 +11040,13 @@ MonoBehaviour:
     houseShake: 0
     fade: 0
     countDown: 0
+  startStep: 0
+  nextStep: 0
+  prevStep: 0
+  showCountDownTimer: 0
+  startOrPauseCountDownTimer: 0
+  stopCountDownTimer: 0
+  resetCountDownTimer: 0
 --- !u!224 &1960067771
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12441,22 +12534,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 327487419}
     m_Modifications:
-    - target: {fileID: 3193668084446916799, guid: 0273e823d5c1cea4383175d3bf98c5e1, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3193668084446916799, guid: 0273e823d5c1cea4383175d3bf98c5e1, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3847326874024867431, guid: 0273e823d5c1cea4383175d3bf98c5e1, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3847326874024867431, guid: 0273e823d5c1cea4383175d3bf98c5e1, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4263105183461700893, guid: 0273e823d5c1cea4383175d3bf98c5e1, type: 3}
       propertyPath: m_Name
       value: Menu
@@ -12540,10 +12617,6 @@ PrefabInstance:
     - target: {fileID: 5465152637114088072, guid: 0273e823d5c1cea4383175d3bf98c5e1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8957035241082563567, guid: 0273e823d5c1cea4383175d3bf98c5e1, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.05591808
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

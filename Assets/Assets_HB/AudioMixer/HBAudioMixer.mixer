@@ -483,35 +483,37 @@ AudioMixerController:
   - guid: 569bd69aee2f9c74db59fb2663599475
     name: BGM
   - guid: 4826dcc909e997941a895fc1fb9faa09
-    name: Bridge
+    name: bridge
   - guid: fbf36199388b9b8489b71490c27d5f3e
-    name: CallofSilence
+    name: callofSilence
   - guid: b03b180c8e0719b459932f444ad8f648
     name: Changeable
   - guid: 763cce92ecf683c42a8c089ffe1cbbc8
     name: Click
   - guid: 8d21eebd37c4bcf458cddeed9bb0a5c5
-    name: CountDownEnd
+    name: countDownEnd
   - guid: 8ba534de170c96e478dbccaf975e7fb1
-    name: CountDownTimer
+    name: countDown
   - guid: ee0acf896cb72d042adbaa49e44faeef
-    name: Drizzle
+    name: drizzle
   - guid: 61e17367b91699c4ca3018fd151f26f0
-    name: Flash
+    name: flash
   - guid: f6be61d7627b8aa42b9845248819988a
-    name: GameStart
+    name: gameStart
   - guid: 24461d6c041b8cc448db26ac71b082c9
-    name: House
+    name: house
   - guid: e8e9aed5f3c236d449981983a1251331
-    name: Investigate
+    name: investigations
+  - guid: f046acca0fca7384f91d392e246f363b
+    name: Main
   - guid: 09d943e116f95e04c8c5a858b4d79301
-    name: RainStrom
+    name: rainStrom
   - guid: 506a75bc4c9dc4343a88d72659b6e8c9
-    name: River
+    name: river
   - guid: ac0cef5640390034580fac30d9d585ac
-    name: SchemingWeasel
+    name: schemingWeasel
   - guid: f908a19e4adc3a741ac388401b9b325e
-    name: Wind
+    name: wind
   - guid: f5f610d8e040d9042ba8fb1a19a22744
     name: "\u5B09\u620F"
   - guid: c252835e141ca2f4a90f1cbee33fbeca
@@ -521,9 +523,9 @@ AudioMixerController:
   - guid: e167113eb2501ef4384f72166ee47b0c
     name: "\u6BCF\u4E00\u5929\u90FD\u5FEB\u6D3B"
   - guid: c0e570b20f5ff9140abc5a962bc48ba5
-    name: "\u6E38\u620F13"
+    name: game13
   - guid: ca840f468c43fb84dad71836cb327b05
-    name: "\u6E38\u620F24"
+    name: game24
   m_AudioMixerGroupViews:
   - guids:
     - fe794b0cf674b8840a60b5ab791cc567
@@ -598,11 +600,14 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: f8f379426bd1a2c409feff29bb03402a
   m_FloatValues:
+    7e4679a06ab2d844a8da56490cb8cff5: 3769
     48035f24626ffc242b01bc70de1bc90e: 0
     f5f610d8e040d9042ba8fb1a19a22744: 0
     30cd63294f92fa74f95b9b72ab8e0c1c: 1
+    569bd69aee2f9c74db59fb2663599475: 0
     f046acca0fca7384f91d392e246f363b: 0
     42dac13b979f973498513ba7c88efb52: 2.76
+    d9bb616d105c8a748b159438f44f5858: 0.84099996
   m_TransitionOverrides: {}
 --- !u!243 &1177181136740702534
 AudioMixerGroupController:

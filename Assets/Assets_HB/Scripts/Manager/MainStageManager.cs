@@ -30,13 +30,18 @@ public class MainStageManager : MonoBehaviour
         _instance = this;
     }
 
-
+    
 
     public AllSceneManager scenesManager;
     public AudioManager audioManager;
     public FlashManager FlashManager;
     public RainManager RainManager;
     public MenuManager MenuManager;
+
+    private void Awake()
+    {
+        MenuManager.settingManager.InitializeSettings();
+    }
 
     private void Update()
     {

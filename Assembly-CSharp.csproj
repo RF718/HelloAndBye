@@ -86,6 +86,7 @@
     <Compile Include="Assets\Assets_HB\Scripts\Manager\FunctionSettingManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
+    <Compile Include="Assets\Assets_HB\Scripts\KeyBinding.cs" />
     <Compile Include="Assets\Assets_HB\Scripts\CloudMover.cs" />
     <Compile Include="Assets\Assets_HB\Scripts\Manager\AudioManager.cs" />
     <Compile Include="Assets\Assets_HB\Scripts\Manager\AudioSettingManager.cs" />
@@ -104,6 +105,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
     <Compile Include="Assets\Assets_HB\Scripts\UI\SliderController.cs" />
     <Compile Include="Assets\Assets_HB\Scripts\Manager\ButtonSettingManager.cs" />
+    <Compile Include="Assets\Assets_HB\Scripts\SliderNameGetter.cs" />
     <Compile Include="Assets\Assets_HB\Scripts\Manager\FlashManager.cs" />
     <Compile Include="Assets\Assets_HB\Scripts\SpriteSwitcher.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />

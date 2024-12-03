@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -32,7 +33,11 @@ public class AudioManager : MonoBehaviour
 
     public KeyCode audioEffectDecrescendo = KeyCode.Minus;      //可变音效减弱按键
 
-    public KeyCode audioEffectStopAll = KeyCode.LeftControl;    //停止所有音效按键
+    public KeyCode audioEffectStopAll = KeyCode.LeftControl;   //停止所有音效按键
+    
+    public KeyCode plusBGM = KeyCode.UpArrow;
+
+    public KeyCode minusBGM = KeyCode.DownArrow;
 
     private Dictionary<string, Sound> bgms;                     //bgm库
 
@@ -41,6 +46,10 @@ public class AudioManager : MonoBehaviour
     private float targetAudioEffectVolume;                      //可变音效目标音量
 
     private float currentAudioEffectVolume;                     //可变音效当前音量
+
+    private float targetBGMVolume;                      //可变音效目标音量
+
+    private float currentBGMVolume;
 
     private void Awake()
     {
@@ -83,6 +92,12 @@ public class AudioManager : MonoBehaviour
         targetAudioEffectVolume = currentAudioEffectVolume;
 
         targetAudioEffectVolume = Mathf.Clamp(targetAudioEffectVolume, minChangeableAudioEffectVolume, maxChangeableAudioEffectVolume);
+
+        mixer.GetFloat("BGM", out currentBGMVolume);
+
+        targetBGMVolume = currentBGMVolume;
+
+        targetBGMVolume = Mathf.Clamp(targetBGMVolume,minChangeableAudioEffectVolume, maxChangeableAudioEffectVolume);
     }
 
     private void Update()
@@ -97,12 +112,23 @@ public class AudioManager : MonoBehaviour
         else if(Input.GetKeyDown(audioEffectStopAll))
             StopAllAudioEffect();
 
+        if (Input.GetKey(plusBGM))
+            PlusBGMMixerGroup();
+        else if (Input.GetKey(minusBGM))
+            MinusBGMMixerGroup();
+
         //可变音效滑动更加自然
         targetAudioEffectVolume = Mathf.Clamp(targetAudioEffectVolume, minChangeableAudioEffectVolume, maxChangeableAudioEffectVolume);
 
+        targetBGMVolume = Mathf.Clamp(targetBGMVolume, minChangeableAudioEffectVolume, maxChangeableAudioEffectVolume);
+
         currentAudioEffectVolume = Mathf.Lerp(currentAudioEffectVolume, targetAudioEffectVolume, Time.deltaTime / smoothTime);
 
+        currentBGMVolume = Mathf.Lerp(currentBGMVolume,targetBGMVolume, Time.deltaTime / smoothTime);
+
         mixer.SetFloat(changeableMixerGroupName, currentAudioEffectVolume);
+
+        mixer.SetFloat("BGM", currentBGMVolume);
 
         foreach (var sound in sounds)
         {
@@ -133,6 +159,15 @@ public class AudioManager : MonoBehaviour
         else if(Input.GetKeyDown(bgmReplay))
             ReplayBgmPlayer();
 
+    }
+
+    public void ResetBGMTarget()
+    {
+        mixer.GetFloat("BGM", out currentBGMVolume);
+
+        targetBGMVolume = currentBGMVolume;
+
+        targetBGMVolume = Mathf.Clamp(targetBGMVolume, minChangeableAudioEffectVolume, maxChangeableAudioEffectVolume);
     }
 
     /// <summary>
@@ -188,6 +223,16 @@ public class AudioManager : MonoBehaviour
             return;
         bgmPlayer.Stop();
         bgmPlayer.Play();
+    }
+
+    private void PlusBGMMixerGroup()
+    {
+        targetBGMVolume += volumeChangeSpeed * Time.deltaTime;
+    }
+
+    private void MinusBGMMixerGroup()
+    {
+        targetBGMVolume -= volumeChangeSpeed * Time.deltaTime;
     }
 
     /// <summary>
@@ -283,4 +328,11 @@ public class AudioManager : MonoBehaviour
         source.outputAudioMixerGroup = sound.mixerGroup;
     }
 
+    public bool isSoundPlayed(string name)
+    {
+        if ((bgmPlayer.isPlaying && bgms.ContainsKey(name)&&bgmPlayer.clip == bgms[name].clip)||
+            (audioEffects.ContainsKey(name)&& audioEffects[name].isPlaying))
+            return true;
+        else return false;
+    }
 }

@@ -18,6 +18,15 @@ public class SceneManager : MonoBehaviour
     public float countdownTime;
     public SceneStep[] steps;
 
+    
+    public KeyCode startStep;
+    public KeyCode nextStep;
+    public KeyCode prevStep;
+    public KeyCode showCountDownTimer;
+    public KeyCode startOrPauseCountDownTimer; 
+    public KeyCode stopCountDownTimer;
+    public KeyCode resetCountDownTimer;
+
     [fsIgnore]
     private int lastStep;
 
@@ -44,6 +53,14 @@ public class SceneManager : MonoBehaviour
     private void OnEnable()
     {
         ResetScene();
+        startStep = (KeyCode)PlayerPrefs.GetInt("startStep");
+        nextStep = (KeyCode)PlayerPrefs.GetInt("nextStep");
+        prevStep = (KeyCode)PlayerPrefs.GetInt("prevStep");
+        showCountDownTimer = (KeyCode)PlayerPrefs.GetInt("showCountDownTimer");
+        startOrPauseCountDownTimer = (KeyCode)PlayerPrefs.GetInt("startOrPauseCountDownTimer");
+        stopCountDownTimer = (KeyCode)PlayerPrefs.GetInt("stopCountDownTimer");
+        resetCountDownTimer = (KeyCode)PlayerPrefs.GetInt("resetCountDownTimer");
+
     }
 
     private void OnDisable()
@@ -71,34 +88,34 @@ public class SceneManager : MonoBehaviour
     {
         if (MainStageManager.instance.MenuManager.gameObject.activeSelf)
             return;
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(startStep))
         {
             GoToTheStep(-1);
         }
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(prevStep))
         {
             PreviousStep();
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(nextStep))
         {
             NextStep();
         }
 
         if (CountDownTimer != null)
         {
-            if (Input.GetKeyDown(KeyCode.Z))
+            if (Input.GetKeyDown(showCountDownTimer))
             {
                 ShowCountDownTimer();
             }
-            if (Input.GetKeyDown(KeyCode.X))
+            if (Input.GetKeyDown(startOrPauseCountDownTimer))
             {
                 CountDownTimer.PauseOrResumeCountDown();
             }
-            if (Input.GetKeyDown(KeyCode.C))
+            if (Input.GetKeyDown(stopCountDownTimer))
             {
                 CountDownTimer.CountDownTimeDisable();
             }
-            if (Input.GetKeyDown(KeyCode.V))
+            if (Input.GetKeyDown(resetCountDownTimer))
             {
                 CountDownTimer.ResetCountDown();
             }
