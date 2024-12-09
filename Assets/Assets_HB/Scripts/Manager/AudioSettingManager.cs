@@ -36,6 +36,7 @@ public class AudioSettingManager : MonoBehaviour
     {
         ResetSetting();
         MainStageManager.instance.audioManager.ResetBGMTarget();
+        this.gameObject.GetComponent<AudioSource>().clip = null;
     }
 
     public void SaveAudioSetting()

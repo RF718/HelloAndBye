@@ -46,13 +46,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
+  - name: wind
+    clip: {fileID: 8300000, guid: e4aad19dbe215584d9c69ffedbfe87f1, type: 3}
+    key: 113
+    volume: 1
+    loop: 1
+    playOnAwake: 0
+    mixerGroup: {fileID: 4426393306734315771, guid: c20cc9d0358eea84e875bd28f1c67379, type: 2}
+    isBGM: 0
+  - name: rainStrom
+    clip: {fileID: 8300000, guid: 801ed55b29ce86544999c3d33e682526, type: 3}
+    key: 119
+    volume: 1
+    loop: 1
+    playOnAwake: 0
+    mixerGroup: {fileID: -696843499878185417, guid: c20cc9d0358eea84e875bd28f1c67379, type: 2}
+    isBGM: 0
   - name: flash
     clip: {fileID: 8300000, guid: 815c04fbbb32dbc439d317d674b69a7a, type: 3}
     key: 101
     volume: 1
     loop: 0
     playOnAwake: 0
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: -7403306358815066610, guid: c20cc9d0358eea84e875bd28f1c67379, type: 2}
     isBGM: 0
   - name: drizzle
     clip: {fileID: 8300000, guid: 28c936c8ad65b9f42978d3cc7b9c0a88, type: 3}
@@ -60,15 +76,15 @@ MonoBehaviour:
     volume: 1
     loop: 1
     playOnAwake: 0
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 8248987786997558918, guid: c20cc9d0358eea84e875bd28f1c67379, type: 2}
     isBGM: 0
-  - name: rainStrom
-    clip: {fileID: 8300000, guid: 801ed55b29ce86544999c3d33e682526, type: 3}
+  - name: house
+    clip: {fileID: 8300000, guid: 0b7320d95b9fb994eafb31cec3891b55, type: 3}
     key: 116
     volume: 1
-    loop: 1
+    loop: 0
     playOnAwake: 0
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: -5761430149488280111, guid: c20cc9d0358eea84e875bd28f1c67379, type: 2}
     isBGM: 0
   - name: river
     clip: {fileID: 8300000, guid: a52eeedf1a46d1f4aa8a0cc3b9288bba, type: 3}
@@ -76,7 +92,7 @@ MonoBehaviour:
     volume: 1
     loop: 1
     playOnAwake: 0
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: -319460000057293794, guid: c20cc9d0358eea84e875bd28f1c67379, type: 2}
     isBGM: 0
   - name: bridge
     clip: {fileID: 8300000, guid: 56f6da19d052bfd41b4da67df4d695b1, type: 3}
@@ -84,15 +100,7 @@ MonoBehaviour:
     volume: 1
     loop: 0
     playOnAwake: 0
-    mixerGroup: {fileID: 0}
-    isBGM: 0
-  - name: house
-    clip: {fileID: 8300000, guid: 0b7320d95b9fb994eafb31cec3891b55, type: 3}
-    key: 105
-    volume: 1
-    loop: 0
-    playOnAwake: 0
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: -5658690005288950268, guid: c20cc9d0358eea84e875bd28f1c67379, type: 2}
     isBGM: 0
   - name: SuccessSound
     clip: {fileID: 8300000, guid: a40d2798939f1d842b23c699f450a73e, type: 3}
@@ -100,7 +108,7 @@ MonoBehaviour:
     volume: 1
     loop: 0
     playOnAwake: 0
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: -7800407492576849047, guid: c20cc9d0358eea84e875bd28f1c67379, type: 2}
     isBGM: 0
   - name: BeneficialInsect
     clip: {fileID: 8300000, guid: c1199d3e41cddcc46b008ff4bee10256, type: 3}
@@ -108,7 +116,7 @@ MonoBehaviour:
     volume: 1
     loop: 0
     playOnAwake: 0
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: -7800407492576849047, guid: c20cc9d0358eea84e875bd28f1c67379, type: 2}
     isBGM: 0
   - name: FailureSound
     clip: {fileID: 8300000, guid: 28a1432d0ec5af94c8792c9f1665b165, type: 3}
@@ -116,11 +124,107 @@ MonoBehaviour:
     volume: 1
     loop: 0
     playOnAwake: 0
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: -7800407492576849047, guid: c20cc9d0358eea84e875bd28f1c67379, type: 2}
+    isBGM: 0
+  - name: countDown
+    clip: {fileID: 8300000, guid: 93c82db991c773643a456d6f9311eab5, type: 3}
+    key: 105
+    volume: 1
+    loop: 1
+    playOnAwake: 0
+    mixerGroup: {fileID: 7951955018619746219, guid: c20cc9d0358eea84e875bd28f1c67379, type: 2}
+    isBGM: 0
+  - name: gameStart
+    clip: {fileID: 8300000, guid: ea4c7fbe7401e534596f20e235b74787, type: 3}
+    key: 56
+    volume: 1
+    loop: 0
+    playOnAwake: 0
+    mixerGroup: {fileID: 2926233489064339775, guid: c20cc9d0358eea84e875bd28f1c67379, type: 2}
+    isBGM: 1
+  - name: game13
+    clip: {fileID: 8300000, guid: 52d160b2efe453c4faf0d45a82906c3e, type: 3}
+    key: 57
+    volume: 1
+    loop: 1
+    playOnAwake: 0
+    mixerGroup: {fileID: -112554498986810939, guid: c20cc9d0358eea84e875bd28f1c67379, type: 2}
+    isBGM: 1
+  - name: game24
+    clip: {fileID: 8300000, guid: e28318016ad165b4982617d9f5b0b57f, type: 3}
+    key: 48
+    volume: 1
+    loop: 1
+    playOnAwake: 0
+    mixerGroup: {fileID: 6663760256755810379, guid: c20cc9d0358eea84e875bd28f1c67379, type: 2}
+    isBGM: 1
+  - name: "\u5B09\u620F"
+    clip: {fileID: 8300000, guid: 809a0092cca4c784388374348396df12, type: 3}
+    key: 49
+    volume: 1
+    loop: 1
+    playOnAwake: 0
+    mixerGroup: {fileID: -2544325274758654302, guid: c20cc9d0358eea84e875bd28f1c67379, type: 2}
+    isBGM: 1
+  - name: investigations
+    clip: {fileID: 8300000, guid: e926f91926a2ec94d97dbf56df113be9, type: 3}
+    key: 50
+    volume: 1
+    loop: 1
+    playOnAwake: 0
+    mixerGroup: {fileID: 2436803501853126459, guid: c20cc9d0358eea84e875bd28f1c67379, type: 2}
+    isBGM: 1
+  - name: schemingWeasel
+    clip: {fileID: 8300000, guid: 102ad50a3166ba74681c5bfcc5d20029, type: 3}
+    key: 51
+    volume: 1
+    loop: 1
+    playOnAwake: 0
+    mixerGroup: {fileID: 4964423235585868838, guid: c20cc9d0358eea84e875bd28f1c67379, type: 2}
+    isBGM: 1
+  - name: "\u5B9D\u8D1D\u5408\u5531\u56E2"
+    clip: {fileID: 8300000, guid: bf783605e0fed5d42a5b59d3572e2a7f, type: 3}
+    key: 52
+    volume: 1
+    loop: 1
+    playOnAwake: 0
+    mixerGroup: {fileID: 1177181136740702534, guid: c20cc9d0358eea84e875bd28f1c67379, type: 2}
+    isBGM: 1
+  - name: "\u6BCF\u4E00\u5929\u90FD\u5FEB\u6D3B"
+    clip: {fileID: 8300000, guid: 2255391ad55b81843858a02ac7e89f65, type: 3}
+    key: 53
+    volume: 1
+    loop: 1
+    playOnAwake: 0
+    mixerGroup: {fileID: -2442758441797192746, guid: c20cc9d0358eea84e875bd28f1c67379, type: 2}
+    isBGM: 1
+  - name: callofSilence
+    clip: {fileID: 8300000, guid: edb286e3f56f46c439651c4b6799e479, type: 3}
+    key: 54
+    volume: 1
+    loop: 1
+    playOnAwake: 0
+    mixerGroup: {fileID: 5936587296173804182, guid: c20cc9d0358eea84e875bd28f1c67379, type: 2}
+    isBGM: 1
+  - name: "\u6211\u7684\u660E\u5929\u66F4\u7F8E\u4E3D"
+    clip: {fileID: 8300000, guid: dd84fd6cebdd47f4490763d33bceb6fb, type: 3}
+    key: 55
+    volume: 1
+    loop: 1
+    playOnAwake: 0
+    mixerGroup: {fileID: -6376934965375180899, guid: c20cc9d0358eea84e875bd28f1c67379, type: 2}
+    isBGM: 1
+  - name: countDownEnd
+    clip: {fileID: 8300000, guid: 4161e4f8ff51cc342956ae9cdb3aa321, type: 3}
+    key: 112
+    volume: 1
+    loop: 0
+    playOnAwake: 0
+    mixerGroup: {fileID: -7807590863038152341, guid: c20cc9d0358eea84e875bd28f1c67379, type: 2}
     isBGM: 0
   mixer: {fileID: 24100000, guid: c20cc9d0358eea84e875bd28f1c67379, type: 2}
   bgmPlayer: {fileID: 5498182040097222449}
-  changeableMixerGroupName: 
+  changeableMixerGroupName: Changeable
   volumeChangeSpeed: 10
   smoothTime: 0.1
   minChangeableAudioEffectVolume: -30
@@ -128,9 +232,11 @@ MonoBehaviour:
   bgmPauseOrResume: 32
   bgmStop: 304
   bgmReplay: 308
-  audioEffectCrescendo: 43
+  audioEffectCrescendo: 61
   audioEffectDecrescendo: 45
   audioEffectStopAll: 306
+  plusBGM: 273
+  minusBGM: 274
 --- !u!82 &5498182040097222449
 AudioSource:
   m_ObjectHideFlags: 0
