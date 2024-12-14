@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
@@ -33,6 +34,9 @@ public class SceneManager : MonoBehaviour
     [fsIgnore]
     private int currentStep;
 
+    [fsIgnore] 
+    public bool revoke = false;
+
     [fsIgnore]
     public int LastStep
     {
@@ -65,6 +69,9 @@ public class SceneManager : MonoBehaviour
 
     private void OnDisable()
     {
+        if(mainStageManager.audioManager==null|| mainStageManager.audioManager.gameObject.IsDestroyed())
+            return;
+
         mainStageManager.audioManager.ResetChangeable();
 
         if (endQuietly)
@@ -137,9 +144,10 @@ public class SceneManager : MonoBehaviour
         mainStageManager.FlashManager.SwitchFlashManager(StartFlash);
         mainStageManager.RainManager.SwitchDrizzle(StartDrizzle);
         mainStageManager.RainManager.SwitchRainStrom(StartRainstorm);
-        mainStageManager.scenesManager.GameStartDisplay.SetActive(StartGameDisplayer);
-        if (StartGameDisplayer)
+        mainStageManager.scenesManager.GameStartDisplay.SetActive(StartGameDisplayer&&!revoke);
+        if (StartGameDisplayer&&!revoke)
             mainStageManager.audioManager.SetAndPlayBgmPlayer("gameStart");
+        revoke = false;
         currentStep = -1;
     }
 
@@ -161,6 +169,16 @@ public class SceneManager : MonoBehaviour
     {
         if (currentStep == -1)
         {
+            if (StartGameDisplayer)
+            {
+                if (mainStageManager.scenesManager.GameStartDisplay.activeSelf)
+                    mainStageManager.scenesManager.GameStartDisplay.SetActive(false);
+                else
+                {
+                    mainStageManager.scenesManager.GameStartDisplay.SetActive(true);
+                    mainStageManager.audioManager.SetAndPlayBgmPlayer("gameStart");
+                }
+            }
             Debug.Log("³õÊ¼×´Ì¬");
             mainStageManager.scenesManager.GoToThePreviousScene();
             lastStep= currentStep;

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class RainManager : MonoBehaviour
@@ -18,7 +19,8 @@ public class RainManager : MonoBehaviour
     public void SwitchDrizzle(bool switcher)
     {
         drizzlePrefab.SetActive(switcher);
-
+        if(audioManager?.gameObject==null||audioManager.IsDestroyed())
+            return;
         if (switcher)
             audioManager.PlayAudioEffect(drizzleSoundName);
         else

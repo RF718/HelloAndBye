@@ -41,7 +41,7 @@ public class AllSceneManager : MonoBehaviour
 
     private void Revoke()
     {
-        GoToTheScene(lastSceneId, true);
+        GoToTheScene(lastSceneId, false);
     }
 
     private void GoToTheScene(int sceneId, bool revoke = false)
@@ -52,6 +52,7 @@ public class AllSceneManager : MonoBehaviour
             {
                 activeScene.gameObject.SetActive(false);
                 lastSceneId = Array.IndexOf(scenes, activeScene);
+                scenes[sceneId].revoke = revoke;
                 scenes[sceneId].gameObject.SetActive(true);
                 activeScene = scenes[sceneId];
 
